@@ -2,7 +2,6 @@ import { FaHeart } from 'react-icons/fa6';
 import css from './ImageCard.module.css';
 
 export default function ImageCard({ picture }) {
-  console.log(picture);
   return (
     <>
       <div className={css.img_wrapper}>
