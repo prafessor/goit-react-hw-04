@@ -11,9 +11,9 @@ export default function ImageCard({ picture }) {
       <div className={css.description_wrapper}>
         <div className={css.title_wrapper}>
           <h3 className={css.title}>{picture.alt_description}</h3>
-          <span class={css.name}>{picture.user.name}</span>
+          <span className={css.name}>{picture.user.name}</span>
         </div>
-        
+
         <span className={css.static}>
           <FaHeart className={css.icon} />
           {picture.likes}

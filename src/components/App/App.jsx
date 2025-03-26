@@ -1,27 +1,12 @@
 import { useState, useEffect } from 'react';
-import Modal from 'react-modal';
 import searchImage from '../../unsplash-api';
 import MoonLoader from 'react-spinners/MoonLoader';
 import SearchBar from '../SearchBar/SearchBar';
 import ImageGallery from '../ImageGallery/ImageGallery';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
+import ImageModal from '../ImageModal/ImageModal';
 import css from './App.module.css';
-
-Modal.setAppElement('#root');
-
-// modal styles
-const customStyles = {
-  content: {
-    right: '50%',
-    left: '',
-    transform: 'translateX(50%)',
-    overflow: 'hidden',
-  },
-  overlay: {
-    backgroundColor: '#000000b9',
-  },
-};
 
 export default function App() {
   const [loading, setLoading] = useState(false);
@@ -95,13 +80,11 @@ export default function App() {
         )}
       </div>
 
-      <Modal
+      <ImageModal
         isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-      >
-        <img className={css.modal_img} src={modalImage} />
-      </Modal>
+        onClose={closeModal}
+        image={modalImage}
+      />
     </>
   );
 }
